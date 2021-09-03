@@ -1,0 +1,360 @@
+@import "./reset.css";
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px auto;
+  grid-template-areas:
+    "navContainer"
+    "heroContainer";
+  height: 100vh;
+  background-color: lightgray;
+}
+
+.navContainer {
+  display: grid;
+  grid-template-columns: 75px auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logoContainer navigation";
+}
+
+.logoContainer {
+  grid-area: logoContainer;
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  grid-area: navigation;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navigation > .active {
+  color: #264653;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  margin-left: 8px;
+}
+
+.menuItem {
+  text-decoration: none;
+  margin-right: 16px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.menuIcon {
+  height: 24px;
+  width: auto;
+  margin-right: 4px;
+}
+
+.menuText {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #c6a55a;
+  font-weight: 900;
+}
+
+.heroContainer {
+  grid-area: heroContainer;
+}
+
+.heroText {
+  font-family: "Elsie", cursive;
+  font-size: 88px;
+  color: #c6a55a;
+  padding-left: 200px;
+  padding-top: 320px;
+  width: 40%;
+  -webkit-animation: fadeIn linear 2s;
+  -moz-animation: fadeIn linear 2s;
+  -o-animation: fadeIn linear 2s;
+  -ms-animation: fadeIn linear 2s;
+  animation: fadeIn linear 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 1fr 0.25fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    ". firstTeaser firstTeaser ."
+    ". secondTeaser secondTeaser ."
+    ". thirdTeaser thirdTeaser .";
+}
+
+.ft {
+  grid-area: firstTeaser;
+  display: grid;
+  grid-template-columns: 1fr 0.75fr 0.75fr;
+  grid-template-areas: "ft-textContainer ft-imgContainer ft-imgContainer";
+  align-self: center;
+  margin-top: 280px;
+}
+
+.ft-iconTextContainer {
+  display: grid;
+  grid-template-columns: 68px auto;
+  grid-template-areas: "ft-icon ft-text";
+  margin-bottom: 16px;
+}
+
+.ft-icon {
+  display: inline-block;
+  height: 60px;
+  width: auto;
+  grid-area: ft-icon;
+}
+
+.ft-text {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #264653;
+  font-weight: 100;
+  grid-area: ft-text;
+  padding-left: 8px;
+  align-self: center;
+  line-height: 28px;
+}
+
+.ft-textContainer {
+  grid-area: ft-textContainer;
+  padding-right: 24px;
+}
+
+.ft-imgContainer {
+  grid-area: ft-imgContainer;
+}
+
+.ft-image {
+  height: auto;
+  width: 100%;
+}
+
+.st {
+  grid-area: secondTeaser;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 72px 1fr;
+  grid-template-areas:
+    "st-titleContainer"
+    "st-container";
+  margin-top: 280px;
+}
+
+.st-titleContainer {
+  grid-area: st-titleContainer;
+  text-align: center;
+}
+
+.st-contentContainer {
+  grid-area: st-container;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 8px;
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 8px;
+  grid-template-areas:
+    "_2x3 _2x3 _2x1 _2x1 _2x5 _2x5"
+    "_2x3 _2x3 _2x2 _2x2 _2x5 _2x5"
+    "_2x3 _2x3 _2x2 _2x2 _2x5 _2x5"
+    "_4x2 _4x2 _4x2 _4x2 _2x5 _2x5"
+    "_4x2 _4x2 _4x2 _4x2 _2x5 _2x5"
+    ". . st-buttonContainer st-buttonContainer . .";
+  align-self: center;
+}
+
+.st-buttonContainer {
+  grid-area: st-buttonContainer;
+}
+
+.st-image {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.recipeText {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Elsie", cursive;
+  color: #264653;
+  font-size: 48px;
+  font-weight: 900;
+  transition: transform 0.5s ease;
+  opacity: 0;
+}
+
+.recipeText:hover {
+  opacity: 1;
+  -webkit-animation: fadeIn linear 0.5s;
+  -moz-animation: fadeIn linear 0.5s;
+  -o-animation: fadeIn linear 0.5s;
+  -ms-animation: fadeIn linear 0.5s;
+  animation: fadeIn linear 0.5s;
+}
+
+._2x3 {
+  grid-area: _2x3;
+  overflow: hidden;
+  position: relative;
+}
+
+._2x3:hover img {
+  transform: scale(1.5);
+}
+
+._4x2 {
+  grid-area: _4x2;
+  overflow: hidden;
+  position: relative;
+}
+
+._4x2:hover img {
+  transform: scale(1.5);
+}
+
+._2x1 {
+  grid-area: _2x1;
+  overflow: hidden;
+  position: relative;
+}
+
+._2x1:hover img {
+  transform: scale(1.5);
+}
+
+._2x2 {
+  grid-area: _2x2;
+  overflow: hidden;
+  position: relative;
+}
+
+._2x2:hover img {
+  transform: scale(1.5);
+}
+
+._2x5 {
+  grid-area: _2x5;
+  overflow: hidden;
+  position: relative;
+}
+
+._2x5:hover img {
+  transform: scale(1.5);
+}
+
+.tt {
+  grid-area: thirdTeaser;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "tt-imgContainer tt-imgContainer tt-textContainer tt-textContainer";
+  margin-top: 280px;
+}
+
+.tt-imgContainer {
+  grid-area: tt-imgContainer;
+}
+
+.tt-textContainer {
+  grid-area: tt-textContainer;
+  padding-left: 40px;
+}
+
+.tt-image {
+  width: 100%;
+  height: auto;
+}
+
+.tt-text {
+  font-size: 28px;
+  font-family: "Roboto", sans-serif;
+  color: #264653;
+  font-weight: 100;
+  line-height: 36px;
+}
+
+.teaserTitle {
+  font-family: "Elsie", cursive;
+  font-size: 40px;
+  color: #c6a55a;
+  margin-bottom: 32px;
+}
+
+.teaserButton {
+  font-family: "Roboto", sans-serif;
+  color: #264653;
+  font-size: 20px;
+  background-color: #c6a55a;
+  font-weight: 900;
+  border: none;
+  padding: 12px 32px 12px 32px;
+  border-radius: 20px;
+  margin-top: 32px;
+}
+
+.footer {
+  margin-top: 280px;
+  height: 200px;
+  background-color: lightgray;
+}
